@@ -14,6 +14,7 @@ impl Component for MainView {
         html!{
             <>
             <h1>{"Hello world!"}</h1>
+            <img src={"img/logo.svg"} />
             </>
         }
     }
