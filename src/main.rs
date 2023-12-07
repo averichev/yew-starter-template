@@ -1,7 +1,7 @@
-use crate::views::main_view::MainView;
+use crate::views::RootComponent;
 
 mod views;
 
 fn main() {
-    yew::Renderer::<MainView>::new().render();
+    yew::Renderer::<RootComponent>::new().render();
 }
