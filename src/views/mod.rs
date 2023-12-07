@@ -19,9 +19,9 @@ impl Component for RootComponent {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
             <>
-                <BrowserRouter>
+                <HashRouter>
                     <Switch<Route> render={RootComponent::switch} />
-                </BrowserRouter>
+                </HashRouter>
                 <footer style="margin-top: 100px;"><a href="https://github.com/averichev/yew-starter-template">{"Source of this starter template"}</a></footer>
             </>
         }
