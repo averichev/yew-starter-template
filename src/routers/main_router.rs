@@ -1,22 +1,7 @@
 use crate::views::another_view::AnotherView;
 use crate::views::main_view::MainView;
-use yew::{html, Html};
-use yew_router::Routable;
-
-pub fn switch(routes: MainRouter) -> Html {
-    match routes {
-        MainRouter::Main => {
-            html! {
-                <MainView />
-            }
-        }
-        MainRouter::Another => {
-            html! {
-                <AnotherView />
-            }
-        }
-    }
-}
+use yew::{html, Component, Context, Html};
+use yew_router::{HashRouter, Routable, Switch};
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum MainRouter {
@@ -24,4 +9,40 @@ pub enum MainRouter {
     Main,
     #[at("/another")]
     Another,
+}
+
+pub struct MainRouterSwitcher;
+
+impl Component for MainRouterSwitcher {
+    type Message = ();
+    type Properties = ();
+
+    fn create(_ctx: &Context<Self>) -> Self {
+        MainRouterSwitcher {}
+    }
+
+    fn view(&self, ctx: &Context<Self>) -> Html {
+        html! {
+            <HashRouter>
+                <Switch<MainRouter> render={MainRouterSwitcher::switch} />
+            </HashRouter>
+        }
+    }
+}
+
+impl MainRouterSwitcher {
+    fn switch(routes: MainRouter) -> Html {
+        match routes {
+            MainRouter::Main => {
+                html! {
+                    <MainView />
+                }
+            }
+            MainRouter::Another => {
+                html! {
+                    <AnotherView />
+                }
+            }
+        }
+    }
 }

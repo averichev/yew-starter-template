@@ -1,8 +1,7 @@
 pub mod some_component;
 
-use crate::routers::main_router::{switch, MainRouter};
+use crate::routers::main_router::MainRouterSwitcher;
 use yew::{html, Component, Context, Html};
-use yew_router::{HashRouter, Switch};
 
 pub struct RootComponent {}
 
@@ -17,10 +16,8 @@ impl Component for RootComponent {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
             <>
-                <HashRouter>
-                    <Switch<MainRouter> render={switch} />
-                </HashRouter>
-                <footer style="margin-top: 100px;"><a href="https://github.com/averichev/yew-starter-template">{"Source of this starter template"}</a></footer>
+            <MainRouterSwitcher/>
+            <footer style="margin-top: 100px;"><a href="https://github.com/averichev/yew-starter-template">{"Source of this starter template"}</a></footer>
             </>
         }
     }
