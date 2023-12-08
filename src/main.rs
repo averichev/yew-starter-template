@@ -1,5 +1,7 @@
-use crate::views::RootComponent;
+use crate::components::RootComponent;
 
+mod components;
+mod routers;
 mod views;
 
 fn main() {

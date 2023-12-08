@@ -1,6 +1,7 @@
-use crate::views::prelude::Link;
-use crate::views::Route;
+use crate::routers::main_router::MainRouter;
 use yew::{html, Component, Context, Html};
+use yew_router::components::Link;
+use crate::components::some_component::SomeComponent;
 
 pub struct AnotherView {}
 
@@ -16,7 +17,10 @@ impl Component for AnotherView {
         html! {
             <>
             <h1>{"Another view"}</h1>
-            <Link<Route> to={Route::Main}>{ "Main view" }</Link<Route>>
+            <div>
+                <SomeComponent />
+            </div>
+            <Link<MainRouter> to={MainRouter::Main}>{ "Main view" }</Link<MainRouter>>
             </>
         }
     }

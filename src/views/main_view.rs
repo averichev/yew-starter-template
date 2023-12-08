@@ -1,6 +1,6 @@
-use crate::views::prelude::*;
-use crate::views::Route;
+use crate::routers::main_router::MainRouter;
 use yew::{html, Component, Context, Html};
+use yew_router::prelude::Link;
 
 pub struct MainView {}
 
@@ -17,7 +17,7 @@ impl Component for MainView {
             <>
             <h1>{"Hello world!"}</h1>
             <img src={"img/logo.svg"} />
-            <Link<Route> to={Route::Another}>{ "Another view" }</Link<Route>>
+            <Link<MainRouter> to={MainRouter::Another}>{ "Another view" }</Link<MainRouter>>
             </>
         }
     }
