@@ -1,7 +1,7 @@
+use crate::components::some_component::SomeComponent;
 use crate::routers::main_router::MainRouter;
 use yew::{html, Component, Context, Html};
 use yew_router::components::Link;
-use crate::components::some_component::SomeComponent;
 
 pub struct AnotherView {}
 
